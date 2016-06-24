@@ -32,6 +32,7 @@ public:
     QPushButton *EXIT;
     QWidget *game;
     QGraphicsView *graphicsView;
+    QPushButton *pushButton;
 
     void setupUi(QWidget *Widget)
     {
@@ -72,6 +73,9 @@ public:
         QBrush brush(QColor(255, 255, 255, 255));
         brush.setStyle(Qt::SolidPattern);
         graphicsView->setBackgroundBrush(brush);
+        pushButton = new QPushButton(game);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(0, 0, 95, 31));
         stackedWidget->addWidget(game);
 
         retranslateUi(Widget);
@@ -88,6 +92,7 @@ public:
         BG->setText(QString());
         START->setText(QApplication::translate("Widget", "Start", 0));
         EXIT->setText(QApplication::translate("Widget", "Exit", 0));
+        pushButton->setText(QApplication::translate("Widget", "Return", 0));
     } // retranslateUi
 
 };

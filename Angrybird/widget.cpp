@@ -4,7 +4,7 @@
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
-{
+{   current_type =1;
     clicked = false;
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
@@ -24,10 +24,13 @@ itemList.push_back(new Y_wood(4,10,0,0,QPixmap("./YY.png").scaled(100,300),world
     // Create bird (You can edit here)
     startX = 5.0;
     startY = 10.0;
-    CurrentBird = new Bird(startX,startY,0.27f,&timer,QPixmap("Normal_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene);
+    CurrentBird = new Bird(startX,startY,0.27f,&timer,QPixmap("Normal_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene,current_type);
+    Fake = new Bird(0,0,0.0f,&timer,QPixmap("Normal_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene,current_type);
+    FlyingBird = Fake;
     // Setting the Velocity
     //birdie->setLinearVelocity(b2Vec2(8,8));
     itemList.push_back(CurrentBird);
+    nobird = false;
     //scene->addItem(birdie);
 
 
@@ -38,10 +41,28 @@ itemList.push_back(new Y_wood(4,10,0,0,QPixmap("./YY.png").scaled(100,300),world
 }
 void Widget::shootBird(float x, float y, float vx, float vy, int birdType)
 {
-    QPixmap tmpBird = QPixmap("Normal_Bird_1.png").scaled(height()/10.0,height()/10.0);
+
+    QPixmap tmpBird;
+    switch(current_type){
+        case 1:
+        tmpBird= QPixmap("Normal_Bird_1.png").scaled(height()/10.0,height()/10.0);
+        break;
+        case 2:
+        tmpBird= QPixmap("Yellow_Bird_1.png").scaled(height()/10.0,height()/10.0);
+        break;
+        case 3:
+        tmpBird= QPixmap("White_Bird_1.png").scaled(height()/10.0,height()/10.0);
+        break;
+        case 4:
+        tmpBird= QPixmap("Blue_Bird_1.png").scaled(height()/10.0,height()/10.0);
+        break;
+    default:
+        break;
+    }
+
     float Rad = 0.27;
 
-    FlyingBird = new Bird(x,y,Rad,&timer,tmpBird,world,scene,false);
+    FlyingBird = new Bird(x,y,Rad,&timer,tmpBird,world,scene,current_type,false);
     FlyingBird->setLinearVelocity(b2Vec2(vx,vy));
     itemList.push_back(FlyingBird);
 
@@ -56,12 +77,42 @@ Widget::~Widget()
 }
 
 void Widget::keyPressEvent(QKeyEvent *e){
-
+b2Vec2 tmpv;
+Bird* tmpb;
     switch(e->key()){
 
         case Qt::Key_S:
             shootBird(startX,startY,8.0,8.0,1);
         break;
+        case Qt::Key_Space:
+            switch(current_type)
+            {
+                case 2:
+                tmpv = FlyingBird->speed;
+                tmpv.Set(tmpv.x*1.5,tmpv.y*1.5);
+                FlyingBird->setLinearVelocity(tmpv);
+                break;
+                case 3:
+                tmpb =new Bird(FlyingBird->g_body->GetPosition().x,FlyingBird->g_body->GetPosition().y,0.15,&timer,QPixmap("./egg.png").scaled(height()/15.0,height()/15.0),world,scene,5,false);
+                itemList.push_back(tmpb);
+                break;
+                case 4:
+                tmpb =new Bird(FlyingBird->g_body->GetPosition().x,FlyingBird->g_body->GetPosition().y,0.27,&timer,QPixmap("./Blue_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene,4,false);
+                tmpv = FlyingBird->speed;
+                                tmpv.Set(tmpv.x,tmpv.y*0.75);
+                tmpb->setLinearVelocity(tmpv);
+                itemList.push_back(tmpb);
+                tmpb =new Bird(FlyingBird->g_body->GetPosition().x,FlyingBird->g_body->GetPosition().y,0.27,&timer,QPixmap("./Blue_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene,4,false);
+                tmpv = FlyingBird->speed;
+                tmpv.Set(tmpv.x,tmpv.y*1.2);
+                tmpb->setLinearVelocity(tmpv);
+                itemList.push_back(tmpb);
+                break;
+            default:
+                break;
+
+            }
+
         default:
             break;
     }
@@ -103,7 +154,7 @@ bool Widget::eventFilter(QObject *, QEvent *event)
     if(event->type() == QEvent::MouseButtonPress)
     {
             QMouseEvent *e = static_cast<QMouseEvent *>(event);
-        if(!clicked){
+        if(!clicked&& !nobird){
             //startMouse=this->mapFromGlobal(QCursor::pos());
 
             startMouse = e->pos();
@@ -151,10 +202,11 @@ bool Widget::eventFilter(QObject *, QEvent *event)
                 //CurrentBird->n_mappedPoint.setX(-1000);
                 //CurrentBird->n_mappedPoint.setY(-1000);
                 shootBird(newstart.x,newstart.y,vx,vy,1);
+                CurrentBird = Fake;
 
         std::cout << "Release !" << std::endl ;
-
-        Re_gen.start(3000);
+        nobird = true;
+        Re_gen.start(5000);
         }
 
         clicked = false;
@@ -165,7 +217,53 @@ bool Widget::eventFilter(QObject *, QEvent *event)
 void Widget::regen()
 {
     Re_gen.stop();
-    CurrentBird = new Bird(startX,startY,0.27f,&timer,QPixmap("Yellow_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene);
+    switch (current_type)
+    {
+    case 1:
+        current_type++;
+        CurrentBird = new Bird(startX,startY,0.27f,&timer,QPixmap("Yellow_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene,current_type);
+        break;
+    case 2:
+        current_type++;
+        CurrentBird = new Bird(startX,startY,0.27f,&timer,QPixmap("White_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene,current_type);
+        break;
+    case 3:
+        current_type++;
+        CurrentBird = new Bird(startX,startY,0.27f,&timer,QPixmap("Blue_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene,current_type);
+        break;
+    case 4:
+        current_type = 1;
+        CurrentBird = new Bird(startX,startY,0.27f,&timer,QPixmap("Normal_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene,current_type);
+        break;
+    default:
+        break;
+    }
+
+    //CurrentBird = new Bird(startX,startY,0.27f,&timer,QPixmap("Yellow_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene);
     itemList.push_back(CurrentBird);
+    nobird = false;
 }
 
+
+
+
+void Widget::on_pushButton_pressed()
+{   qApp->removeEventFilter(this);
+    timer.stop();
+    nobird = true;
+    ui->stackedWidget->setCurrentIndex(0);
+                    CurrentBird->deleteLater();
+    itemList.clear();
+    current_type =1;
+        clicked = false;
+        //itemList.push_back(new Land(16,1.5,32,3,QPixmap("./GROUND.png").scaled(width(),height()/6.0),world,scene));
+
+        //itemList.push_back(new Y_wood(4,10,0,0,QPixmap("./YY.png").scaled(100,300),world,scene));
+        CurrentBird = new Bird(startX,startY,0.27f,&timer,QPixmap("Normal_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene,current_type);
+        Fake = new Bird(0,0,0.0f,&timer,QPixmap("Normal_Bird_1.png").scaled(height()/10.0,height()/10.0),world,scene,current_type);
+        FlyingBird = Fake;
+        // Setting the Velocity
+        //birdie->setLinearVelocity(b2Vec2(8,8));
+        itemList.push_back(CurrentBird);
+        nobird = false;
+}

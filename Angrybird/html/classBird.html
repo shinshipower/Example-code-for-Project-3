@@ -83,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-slots">Public Slots</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classBird-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Bird Class Reference</div>  </div>
@@ -110,9 +111,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>paint</b> ()</td></tr
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac323f5c2088454395569e8580d7c9a41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac323f5c2088454395569e8580d7c9a41"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Bird</b> (float x, float y, float radius, QTimer *timer, QPixmap pixmap, b2World *world, QGraphicsScene *scene, bool dtype=true)</td></tr>
-<tr class="separator:ac323f5c2088454395569e8580d7c9a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae01d2eb85f6f900c8509fac8c30dce6e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae01d2eb85f6f900c8509fac8c30dce6e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Bird</b> (float x, float y, float radius, QTimer *timer, QPixmap pixmap, b2World *world, QGraphicsScene *scene, int btype, bool dtype=true)</td></tr>
+<tr class="separator:ae01d2eb85f6f900c8509fac8c30dce6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30a2480db9cbbbc498ab3ce651e579d8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30a2480db9cbbbc498ab3ce651e579d8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setLinearVelocity</b> (b2Vec2 velocity)</td></tr>
 <tr class="separator:a30a2480db9cbbbc498ab3ce651e579d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,20 +125,29 @@ b2Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>get_Position</b> ()
 &#160;</td><td class="memItemRight" valign="bottom"><b>GameItem</b> (b2World *world)</td></tr>
 <tr class="separator:a6d2b35fc97b11e0c9fd0105320cea69f inherit pub_methods_classGameItem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a4143fb4247686a08dea090c2c0594c61"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4143fb4247686a08dea090c2c0594c61"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>birdtype</b></td></tr>
+<tr class="separator:a4143fb4247686a08dea090c2c0594c61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8be58997abcdbc0dc33b65deae95a4a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8be58997abcdbc0dc33b65deae95a4a9"></a>
+b2Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>speed</b></td></tr>
+<tr class="separator:a8be58997abcdbc0dc33b65deae95a4a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_attribs_classGameItem"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classGameItem')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classGameItem.html">GameItem</a></td></tr>
+<tr class="memitem:a3ee0fcf85f92718f1baaa3b76419c2fb inherit pub_attribs_classGameItem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ee0fcf85f92718f1baaa3b76419c2fb"></a>
+QPointF&#160;</td><td class="memItemRight" valign="bottom"><b>n_mappedPoint</b></td></tr>
+<tr class="separator:a3ee0fcf85f92718f1baaa3b76419c2fb inherit pub_attribs_classGameItem"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa021d911802e721b49270fe790d5e605 inherit pub_attribs_classGameItem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa021d911802e721b49270fe790d5e605"></a>
+b2Body *&#160;</td><td class="memItemRight" valign="bottom"><b>g_body</b></td></tr>
+<tr class="separator:aa021d911802e721b49270fe790d5e605 inherit pub_attribs_classGameItem"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classGameItem"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classGameItem')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="classGameItem.html">GameItem</a></td></tr>
 <tr class="memitem:aa82bd0ad63ecb3ca6587707c3998d2e8 inherit pub_static_methods_classGameItem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa82bd0ad63ecb3ca6587707c3998d2e8"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>setGlobalSize</b> (QSizeF worldsize, QSizeF windowsize)</td></tr>
 <tr class="separator:aa82bd0ad63ecb3ca6587707c3998d2e8 inherit pub_static_methods_classGameItem"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_attribs_classGameItem"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classGameItem')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classGameItem.html">GameItem</a></td></tr>
-<tr class="memitem:a3ee0fcf85f92718f1baaa3b76419c2fb inherit pub_attribs_classGameItem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ee0fcf85f92718f1baaa3b76419c2fb"></a>
-QPointF&#160;</td><td class="memItemRight" valign="bottom"><b>n_mappedPoint</b></td></tr>
-<tr class="separator:a3ee0fcf85f92718f1baaa3b76419c2fb inherit pub_attribs_classGameItem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classGameItem"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classGameItem')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classGameItem.html">GameItem</a></td></tr>
-<tr class="memitem:aa021d911802e721b49270fe790d5e605 inherit pro_attribs_classGameItem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa021d911802e721b49270fe790d5e605"></a>
-b2Body *&#160;</td><td class="memItemRight" valign="bottom"><b>g_body</b></td></tr>
-<tr class="separator:aa021d911802e721b49270fe790d5e605 inherit pro_attribs_classGameItem"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae01ffe4691dbeef8e2b89949061688ae inherit pro_attribs_classGameItem"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae01ffe4691dbeef8e2b89949061688ae"></a>
 QGraphicsPixmapItem&#160;</td><td class="memItemRight" valign="bottom"><b>g_pixmap</b></td></tr>
 <tr class="separator:ae01ffe4691dbeef8e2b89949061688ae inherit pro_attribs_classGameItem"><td class="memSeparator" colspan="2">&#160;</td></tr>

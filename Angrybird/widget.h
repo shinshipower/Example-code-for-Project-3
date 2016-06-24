@@ -42,6 +42,10 @@ private slots:
     void QUITSLOT();
 
     void regen();
+
+
+    void on_pushButton_pressed();
+
 protected:
     void keyPressEvent(QKeyEvent *e);
 private:
@@ -59,6 +63,9 @@ private:
     bool clicked;
     Bird *CurrentBird;
     Bird *FlyingBird;
+    Bird *Fake;
+    int current_type;
+    bool nobird;
 };
 
 

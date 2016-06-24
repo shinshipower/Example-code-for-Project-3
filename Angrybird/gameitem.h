@@ -15,14 +15,14 @@ public:
     ~GameItem();
     static void setGlobalSize(QSizeF worldsize, QSizeF windowsize);
     QPointF n_mappedPoint;
-
+    b2Body *g_body;
 
 public slots:
     void paint();
     // TODO virtual void collide();
 
 protected:
-    b2Body *g_body;
+
     QGraphicsPixmapItem g_pixmap;
     QSizeF g_size;
     b2World *g_world;

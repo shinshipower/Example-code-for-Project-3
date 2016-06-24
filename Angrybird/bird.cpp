@@ -1,6 +1,6 @@
 #include "bird.h"
 
-Bird::Bird(float x, float y, float radius, QTimer *timer, QPixmap pixmap, b2World *world, QGraphicsScene *scene, bool dtype):GameItem(world)
+Bird::Bird(float x, float y, float radius, QTimer *timer, QPixmap pixmap, b2World *world, QGraphicsScene *scene,int btype ,bool dtype):GameItem(world)
 {
     // Set pixmap
     Radius = radius;
@@ -8,6 +8,7 @@ Bird::Bird(float x, float y, float radius, QTimer *timer, QPixmap pixmap, b2Worl
     g_pixmap.setTransformOriginPoint(g_pixmap.boundingRect().width()/2,g_pixmap.boundingRect().height()/2);
     g_size = QSize(radius*2,radius*2);
     dragable=dtype;
+    birdtype= btype;
     // Create Body
     b2BodyDef bodydef;
     bodydef.type = b2_dynamicBody;
@@ -42,6 +43,7 @@ Bird::Bird(float x, float y, float radius, QTimer *timer, QPixmap pixmap, b2Worl
 void Bird::setLinearVelocity(b2Vec2 velocity)
 {
     g_body->SetLinearVelocity(velocity);
+    speed = velocity;
 }
 
 //QRectF Bird::boundingRect() const

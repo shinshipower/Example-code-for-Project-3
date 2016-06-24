@@ -116,74 +116,79 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    QPushButton *EXIT;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    QWidget *game;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    QGraphicsView *graphicsView;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> setupUi(QWidget *<a class="code" href="classWidget.html">Widget</a>)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">if</span> (Widget-&gt;objectName().isEmpty())</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            Widget-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;Widget&quot;</span>));</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        Widget-&gt;resize(1280, 720);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        stackedWidget = <span class="keyword">new</span> QStackedWidget(Widget);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        stackedWidget-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;stackedWidget&quot;</span>));</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        stackedWidget-&gt;setGeometry(QRect(0, 0, 1280, 720));</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        stackedWidget-&gt;setLineWidth(0);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        welcome = <span class="keyword">new</span> QWidget();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        welcome-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;welcome&quot;</span>));</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        BG = <span class="keyword">new</span> QLabel(welcome);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        BG-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;BG&quot;</span>));</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        BG-&gt;setGeometry(QRect(0, 0, 1280, 720));</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        BG-&gt;setPixmap(QPixmap(QString::fromUtf8(<span class="stringliteral">&quot;title.jpg&quot;</span>)));</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        BG-&gt;setScaledContents(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        START = <span class="keyword">new</span> QPushButton(welcome);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        START-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;START&quot;</span>));</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        START-&gt;setGeometry(QRect(230, 630, 221, 71));</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        QFont font;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        font.setFamily(QStringLiteral(<span class="stringliteral">&quot;DejaVu Sans Mono&quot;</span>));</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        font.setPointSize(24);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        START-&gt;setFont(font);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        EXIT = <span class="keyword">new</span> QPushButton(welcome);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        EXIT-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;EXIT&quot;</span>));</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        EXIT-&gt;setGeometry(QRect(870, 630, 221, 71));</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        EXIT-&gt;setFont(font);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        stackedWidget-&gt;addWidget(welcome);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        game = <span class="keyword">new</span> QWidget();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        game-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;game&quot;</span>));</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        graphicsView = <span class="keyword">new</span> QGraphicsView(game);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        graphicsView-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;graphicsView&quot;</span>));</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        graphicsView-&gt;setGeometry(QRect(0, 0, 1280, 720));</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        graphicsView-&gt;setFrameShape(QFrame::NoFrame);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        graphicsView-&gt;setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        graphicsView-&gt;setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        QBrush brush(QColor(255, 255, 255, 255));</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        brush.setStyle(Qt::SolidPattern);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        graphicsView-&gt;setBackgroundBrush(brush);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        stackedWidget-&gt;addWidget(game);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        retranslateUi(Widget);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        stackedWidget-&gt;setCurrentIndex(1);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    QPushButton *pushButton;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> setupUi(QWidget *<a class="code" href="classWidget.html">Widget</a>)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span> (Widget-&gt;objectName().isEmpty())</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            Widget-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;Widget&quot;</span>));</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        Widget-&gt;resize(1280, 720);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        stackedWidget = <span class="keyword">new</span> QStackedWidget(Widget);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        stackedWidget-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;stackedWidget&quot;</span>));</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        stackedWidget-&gt;setGeometry(QRect(0, 0, 1280, 720));</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        stackedWidget-&gt;setLineWidth(0);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        welcome = <span class="keyword">new</span> QWidget();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        welcome-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;welcome&quot;</span>));</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        BG = <span class="keyword">new</span> QLabel(welcome);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        BG-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;BG&quot;</span>));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        BG-&gt;setGeometry(QRect(0, 0, 1280, 720));</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        BG-&gt;setPixmap(QPixmap(QString::fromUtf8(<span class="stringliteral">&quot;title.jpg&quot;</span>)));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        BG-&gt;setScaledContents(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        START = <span class="keyword">new</span> QPushButton(welcome);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        START-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;START&quot;</span>));</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        START-&gt;setGeometry(QRect(230, 630, 221, 71));</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        QFont font;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        font.setFamily(QStringLiteral(<span class="stringliteral">&quot;DejaVu Sans Mono&quot;</span>));</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        font.setPointSize(24);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        START-&gt;setFont(font);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        EXIT = <span class="keyword">new</span> QPushButton(welcome);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        EXIT-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;EXIT&quot;</span>));</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        EXIT-&gt;setGeometry(QRect(870, 630, 221, 71));</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        EXIT-&gt;setFont(font);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        stackedWidget-&gt;addWidget(welcome);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        game = <span class="keyword">new</span> QWidget();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        game-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;game&quot;</span>));</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        graphicsView = <span class="keyword">new</span> QGraphicsView(game);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        graphicsView-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;graphicsView&quot;</span>));</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        graphicsView-&gt;setGeometry(QRect(0, 0, 1280, 720));</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        graphicsView-&gt;setFrameShape(QFrame::NoFrame);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        graphicsView-&gt;setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        graphicsView-&gt;setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        QBrush brush(QColor(255, 255, 255, 255));</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        brush.setStyle(Qt::SolidPattern);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        graphicsView-&gt;setBackgroundBrush(brush);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        pushButton = <span class="keyword">new</span> QPushButton(game);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        pushButton-&gt;setObjectName(QStringLiteral(<span class="stringliteral">&quot;pushButton&quot;</span>));</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        pushButton-&gt;setGeometry(QRect(0, 0, 95, 31));</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        stackedWidget-&gt;addWidget(game);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        QMetaObject::connectSlotsByName(Widget);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    } <span class="comment">// setupUi</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        retranslateUi(Widget);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        stackedWidget-&gt;setCurrentIndex(1);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> retranslateUi(QWidget *Widget)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        Widget-&gt;setWindowTitle(QApplication::translate(<span class="stringliteral">&quot;Widget&quot;</span>, <span class="stringliteral">&quot;Widget&quot;</span>, 0));</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        BG-&gt;setText(QString());</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        START-&gt;setText(QApplication::translate(<span class="stringliteral">&quot;Widget&quot;</span>, <span class="stringliteral">&quot;Start&quot;</span>, 0));</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        EXIT-&gt;setText(QApplication::translate(<span class="stringliteral">&quot;Widget&quot;</span>, <span class="stringliteral">&quot;Exit&quot;</span>, 0));</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    } <span class="comment">// retranslateUi</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;};</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">namespace </span>Ui {</div>
-<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classUi_1_1Widget.html">   96</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classUi_1_1Widget.html">Widget</a>: <span class="keyword">public</span> <a class="code" href="classUi__Widget.html">Ui_Widget</a> {};</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;} <span class="comment">// namespace Ui</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;QT_END_NAMESPACE</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif // UI_WIDGET_H</span></div>
-<div class="ttc" id="classUi_1_1Widget_html"><div class="ttname"><a href="classUi_1_1Widget.html">Ui::Widget</a></div><div class="ttdef"><b>Definition:</b> ui_widget.h:96</div></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        QMetaObject::connectSlotsByName(Widget);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    } <span class="comment">// setupUi</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> retranslateUi(QWidget *Widget)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        Widget-&gt;setWindowTitle(QApplication::translate(<span class="stringliteral">&quot;Widget&quot;</span>, <span class="stringliteral">&quot;Widget&quot;</span>, 0));</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        BG-&gt;setText(QString());</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        START-&gt;setText(QApplication::translate(<span class="stringliteral">&quot;Widget&quot;</span>, <span class="stringliteral">&quot;Start&quot;</span>, 0));</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        EXIT-&gt;setText(QApplication::translate(<span class="stringliteral">&quot;Widget&quot;</span>, <span class="stringliteral">&quot;Exit&quot;</span>, 0));</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        pushButton-&gt;setText(QApplication::translate(<span class="stringliteral">&quot;Widget&quot;</span>, <span class="stringliteral">&quot;Return&quot;</span>, 0));</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    } <span class="comment">// retranslateUi</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">namespace </span>Ui {</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classUi_1_1Widget.html">  101</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classUi_1_1Widget.html">Widget</a>: <span class="keyword">public</span> <a class="code" href="classUi__Widget.html">Ui_Widget</a> {};</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;} <span class="comment">// namespace Ui</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;QT_END_NAMESPACE</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif // UI_WIDGET_H</span></div>
+<div class="ttc" id="classUi_1_1Widget_html"><div class="ttname"><a href="classUi_1_1Widget.html">Ui::Widget</a></div><div class="ttdef"><b>Definition:</b> ui_widget.h:101</div></div>
 <div class="ttc" id="classUi__Widget_html"><div class="ttname"><a href="classUi__Widget.html">Ui_Widget</a></div><div class="ttdef"><b>Definition:</b> ui_widget.h:25</div></div>
 <div class="ttc" id="classWidget_html"><div class="ttname"><a href="classWidget.html">Widget</a></div><div class="ttdef"><b>Definition:</b> widget.h:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
